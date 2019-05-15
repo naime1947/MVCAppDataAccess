@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -29,6 +30,18 @@ namespace MVCApp.Controllers
 
         public ActionResult SignUp()
         {
+            ViewBag.Message = "Employee Sign Up";
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SignUp(EmployeeModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             ViewBag.Message = "Employee Sign Up";
             return View();
         }
