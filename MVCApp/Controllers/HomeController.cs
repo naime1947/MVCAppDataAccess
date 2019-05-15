@@ -26,5 +26,11 @@ namespace MVCApp.Controllers
 
             return View();
         }
+
+        public ActionResult SignUp()
+        {
+            ViewBag.Message = "Employee Sign Up";
+            return View();
+        }
     }
 }
